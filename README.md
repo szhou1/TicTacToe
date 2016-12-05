@@ -1,5 +1,5 @@
 To Install and Run:
 
-git clone <this repo>
-npm install
-node index.js
+1. git clone <this repo>
+2. npm install
+3. node index.js
