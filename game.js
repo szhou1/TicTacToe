@@ -31,8 +31,10 @@ var Game = function() {
   }
 
   this.submitMove = function(x, y) {
-    console.log('subbmited', x, y)
-    this.board[x][y] = null;
+    // console.log('subbmited', typeof x, x, typeof y, y)
+    // console.log('row', this.board[x]);
+    // console.log('item', this.board[x][y]);
+    this.board[x][y] = 'X';
     // console.log(this.board);
   }
 };
