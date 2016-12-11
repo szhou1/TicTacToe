@@ -5,6 +5,8 @@ var Game = function() {
                 ['_', '_', '_'], 
                 ['_', '_', '_']];
 
+  this.turnCount = 0;
+
   this.start = function() {
     console.log('start game');
   }
@@ -12,6 +14,7 @@ var Game = function() {
   this.end = function() {
     console.log('end game');
   }
+
 
   // this.generateBoard = function() {
   // }
@@ -31,11 +34,12 @@ var Game = function() {
   }
 
   this.submitMove = function(x, y) {
-    // console.log('subbmited', typeof x, x, typeof y, y)
-    // console.log('row', this.board[x]);
-    // console.log('item', this.board[x][y]);
+    console.log(x, y)
+    if(x<0 || x>2 || y<0 || y>2 || isNaN(x) || isNaN(y)) {
+      console.error('Please enter X Y between 0 and 2');
+      return;
+    }
     this.board[x][y] = 'X';
-    // console.log(this.board);
   }
 };
 
