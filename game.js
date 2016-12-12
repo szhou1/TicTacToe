@@ -1,11 +1,13 @@
+var Helpers = require('./helpers.js');
+
 var Game = function() {
 
-  // this.board = [];
   this.board = [['_', '_', '_'], 
                 ['_', '_', '_'], 
                 ['_', '_', '_']];
 
-  this.turnCount = 0;
+  this.player = 'X';
+  this.turnCount = 1;
 
   this.start = function() {
     console.log('start game');
@@ -15,9 +17,14 @@ var Game = function() {
     console.log('end game');
   }
 
-
-  // this.generateBoard = function() {
-  // }
+  this.changeTurn = function() {
+    if(this.player === 'X') {
+      this.player = 'O';
+    } else {
+      this.player = 'X';
+    }
+    this.turnCount++;
+  }
 
   this.boardToString = function() {
     console.log('boardToString', this.board)
@@ -34,13 +41,19 @@ var Game = function() {
   }
 
   this.submitMove = function(x, y) {
-    console.log(x, y)
+    // console.log(x, y)
     if(x<0 || x>2 || y<0 || y>2 || isNaN(x) || isNaN(y)) {
       console.error('Please enter X Y between 0 and 2');
       return;
     }
-    this.board[x][y] = 'X';
+    this.board[x][y] = this.player;
+
+    if(Helpers.detectWin.call(this, x, y)) {
+      this.end();
+    }
+    this.changeTurn();
   }
+
 };
 
 module.exports = new Game();

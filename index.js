@@ -13,7 +13,7 @@ stdin.addListener("data", function(d) {
     // with toString() and then trim() 
     // console.log("you entered: [" + d.toString().trim() + "]");
 
-    var pos = d.toString().split(' ');
+    var pos = d.toString().trim().split(' ');
     // console.log('x', pos[0], 'y', pos[1]);
     Game.submitMove(parseInt(pos[0]), parseInt(pos[1]));
     console.log(Game.boardToString());
