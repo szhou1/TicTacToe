@@ -14,7 +14,7 @@ var Game = function() {
   }
 
   this.end = function() {
-    console.log('end game');
+    console.log('Player', this.player, 'is the winner!');
   }
 
   this.changeTurn = function() {
@@ -27,7 +27,7 @@ var Game = function() {
   }
 
   this.boardToString = function() {
-    console.log('boardToString', this.board)
+    // console.log('boardToString', this.board)
     var boardString = '  0 1 2\n';
     for( var i = 0; i < 3; i++) {
      boardString = boardString + i + " " + 
